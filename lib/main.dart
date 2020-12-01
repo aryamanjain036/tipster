@@ -28,10 +28,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   double billAmount = 0,
-      numberOfPeople = 1,
       tipPercentage = 5,
+      numberOfPeople = 1,
       tipAmount = 0,
       totalAmount = 0;
+  // var numberOfPeopleString = double.parse(numberOfPeople);
   void tipDecrement() {
     setState(() {
       tipPercentage--;
@@ -198,7 +199,7 @@ class _HomePageState extends State<HomePage> {
                                 )),
                             Spacer(),
                             Text(
-                              "$numberOfPeople",
+                              "${numberOfPeople.toInt()}",
                               style:
                                   TextStyle(fontSize: 20, color: Colors.white),
                             ),
@@ -252,10 +253,11 @@ class _HomePageState extends State<HomePage> {
         context: context,
         builder: (BuildContext context) {
           return Container(
-            padding: EdgeInsets.all(20),  
+            padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20), topRight: Radius.circular(20)),
             ),
             child: Column(
               children: [
@@ -265,18 +267,115 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     Text(
-                      "Total Bill",
+                      "YOUR BILL",
                       style: TextStyle(color: Colors.black),
                     ),
                     Spacer(),
                     Text(
-                      "Number Of People",
+                      "NUMBER OF PEOPLE",
                       style: TextStyle(color: Colors.black),
                     ),
                   ],
                 ),
                 SizedBox(
                   height: 10,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "$billAmount",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 40,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    Spacer(),
+                    Text(
+                      "${numberOfPeople.toInt()}",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 40,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+               Row(
+                  children: [
+                    Text(
+                      "TIP %",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Spacer(),
+                    Text(
+                      "TOTAL PER PERSON",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  children: [
+                    Text(
+                      "${tipPercentage}",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 40,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    Spacer(),
+                    Text(
+                      "${totalAmount}",
+                      style: TextStyle(color: Colors.black,fontSize: 20),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Spacer(),
+                    Text("TOTAL",style: TextStyle(color: Colors.black),),
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  children: [
+                    Spacer(),
+                    Text("TOTAL",style: TextStyle(color: Colors.black,fontSize: 50),),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+               Row(
+                  children: [
+                    Text(
+                      "TIP PER PERSON",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Spacer(),
+                    Text(
+                      "TOTAL TIP",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+               Row(
+                  children: [
+                    Text(
+                      "${tipAmount}",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Spacer(),
+                    Text(
+                      "total tip",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ],
                 ),
               ],
             ),
