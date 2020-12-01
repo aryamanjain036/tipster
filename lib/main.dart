@@ -225,8 +225,9 @@ class _HomePageState extends State<HomePage> {
                         GestureDetector(
                           onTap: () {
                             //TODO
-                            _finalDisplay(context);
+                            
                             if (billAmount > 0) {
+                              _finalDisplay(context);
                               calculate();
                             }
                           },
