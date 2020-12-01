@@ -31,7 +31,10 @@ class _HomePageState extends State<HomePage> {
       tipPercentage = 5,
       numberOfPeople = 1,
       tipAmount = 0,
-      totalAmount = 0;
+      totalAmount = 0,
+      totalPerPerson=0,
+      tipPerPerson=0;
+
   // var numberOfPeopleString = double.parse(numberOfPeople);
   void tipDecrement() {
     setState(() {
@@ -66,9 +69,9 @@ class _HomePageState extends State<HomePage> {
     } else {
       setState(() {
         tipAmount = billAmount * (tipPercentage / 100);
-        tipAmount = tipAmount / numberOfPeople;
-        double billPerPerson = billAmount / numberOfPeople;
-        totalAmount = billPerPerson + tipAmount;
+        tipPerPerson = tipAmount / numberOfPeople;
+        totalAmount = billAmount + tipAmount;
+        totalPerPerson = totalAmount / numberOfPeople;
       });
     }
   }
@@ -159,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                                 )),
                             Spacer(),
                             Text(
-                              "$tipPercentage",
+                              "${tipPercentage.toInt()}",
                               style:
                                   TextStyle(fontSize: 20, color: Colors.white),
                             ),
@@ -283,7 +286,7 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     Text(
-                      "$billAmount",
+                      "${billAmount.toStringAsFixed(2)}",
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 40,
@@ -319,7 +322,7 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     Text(
-                      "${tipPercentage}",
+                      "${tipPercentage.toInt()}",
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 40,
@@ -327,7 +330,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Spacer(),
                     Text(
-                      "${totalAmount}",
+                      "\$${totalPerPerson.toStringAsFixed(2)}",
                       style: TextStyle(color: Colors.black,fontSize: 20),
                     ),
                   ],
@@ -338,11 +341,11 @@ class _HomePageState extends State<HomePage> {
                     Text("TOTAL",style: TextStyle(color: Colors.black),),
                   ],
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 10,),
                 Row(
                   children: [
                     Spacer(),
-                    Text("TOTAL",style: TextStyle(color: Colors.black,fontSize: 50),),
+                    Text("\$${totalAmount.toStringAsFixed(2)}",style: TextStyle(color: Colors.black,fontSize: 50),),
                   ],
                 ),
                 SizedBox(
@@ -367,12 +370,12 @@ class _HomePageState extends State<HomePage> {
                Row(
                   children: [
                     Text(
-                      "${tipAmount}",
+                      "\$${tipPerPerson.toStringAsFixed(2)}",
                       style: TextStyle(color: Colors.black),
                     ),
                     Spacer(),
                     Text(
-                      "total tip",
+                      "\$${tipAmount.toStringAsFixed(2)}",
                       style: TextStyle(color: Colors.black),
                     ),
                   ],
