@@ -33,8 +33,8 @@ class _HomePageState extends State<HomePage> {
       numberOfPeople = 1,
       tipAmount = 0,
       totalAmount = 0,
-      totalPerPerson=0,
-      tipPerPerson=0;
+      totalPerPerson = 0,
+      tipPerPerson = 0;
 
   // var numberOfPeopleString = double.parse(numberOfPeople);
   void tipDecrement() {
@@ -221,7 +221,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            
                             if (billAmount > 0) {
                               _finalDisplay(context);
                               calculate();
@@ -229,7 +228,7 @@ class _HomePageState extends State<HomePage> {
                           },
                           child: Container(
                             padding: EdgeInsets.symmetric(
-                                horizontal: 24, vertical: 18),
+                                horizontal: 30, vertical: 16),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 color: Colors.white),
@@ -247,7 +246,8 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-// card 
+
+// card
   void _finalDisplay(context) {
     showModalBottomSheet(
         context: context,
@@ -268,134 +268,232 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: 10,
                 ),
-                Row(
-                  children: [
-                    Text(
-                      "YOUR BILL",
-                      style: GoogleFonts.roboto(textStyle: TextStyle(color: Colors.grey[700],fontWeight: FontWeight.w800 ,fontSize: 13 , letterSpacing: .5,),),
+                 Container(
+                    child: Row(
+                      children: [
+                        Text(
+                          "YOUR BILL",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                              color: Colors.grey[700],
+                              fontWeight: FontWeight.w800,
+                              fontSize: 13,
+                              letterSpacing: .5,
+                            ),
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          "NUMBER OF PEOPLE",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                              color: Colors.grey[700],
+                              fontWeight: FontWeight.w800,
+                              fontSize: 13,
+                              letterSpacing: .5,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    Spacer(),
-                    Text(
-                      "NUMBER OF PEOPLE",
-                      style: GoogleFonts.roboto(textStyle: TextStyle(color: Colors.grey[700], fontWeight: FontWeight.w800 ,fontSize: 13, letterSpacing: .5,),),
+                  ),
+                
+                SizedBox(
+                  height: 10,
+                ),
+                Expanded(
+                  child: Container(
+                    child: Row(
+                      children: [
+                        Text(
+                          "${billAmount.toStringAsFixed(2)}",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                                color: Colors.grey[800],
+                                fontSize: 50,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          "${numberOfPeople.toInt()}",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 50,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                Row(
-                  children: [
-                    Text(
-                      "${billAmount.toStringAsFixed(2)}",
-                      style: GoogleFonts.roboto(textStyle: TextStyle(
-                          color: Colors.grey[800],
-                          fontSize: 50,
-                          fontWeight: FontWeight.w600),),
+                Container(
+                    child: Row(
+                      children: [
+                        Text(
+                          "TIP %",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                              color: Colors.grey[700],
+                              fontWeight: FontWeight.w800,
+                              fontSize: 13,
+                              letterSpacing: .5,
+                            ),
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          "TOTAL PER PERSON",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                              color: Colors.grey[700],
+                              fontWeight: FontWeight.w800,
+                              fontSize: 13,
+                              letterSpacing: .5,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    Spacer(),
-                    Text(
-                      "${numberOfPeople.toInt()}",
-                      style: GoogleFonts.roboto(textStyle: TextStyle(
-                          color: Colors.grey[600],
-                          fontSize: 50,
-                          fontWeight: FontWeight.w400),),
+                  ),
+                SizedBox(
+                  height: 10,
+                ),
+                Expanded(
+                  child: Container(
+                    child: Row(
+                      children: [
+                        Text(
+                          "${tipPercentage.toInt()}",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                                color: Colors.grey[800],
+                                fontSize: 50,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          numberOfPeople == 1
+                              ? "\$${totalAmount.toStringAsFixed(2)}"
+                              : "\$${totalPerPerson.toStringAsFixed(2)}",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                                color: Colors.blue[800],
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
+                ),
+                 Container(
+                    child: Row(
+                      children: [
+                        Spacer(),
+                        Text(
+                          "TOTAL",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                              color: Colors.grey[700],
+                              fontWeight: FontWeight.w800,
+                              fontSize: 13,
+                              letterSpacing: .5,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                SizedBox(
+                  height: 10,
+                ),
+                Expanded(
+                  child: Container(
+                    child: Row(
+                      children: [
+                        Spacer(),
+                        Text(
+                          "\$${totalAmount.toStringAsFixed(2)}",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                                color: Colors.blue[800],
+                                fontSize: 60,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-               Row(
-                  children: [
-                    Text(
-                      "TIP %",
-                      style: GoogleFonts.roboto(textStyle: TextStyle(color: Colors.grey[700], fontWeight: FontWeight.w800 ,fontSize: 13, letterSpacing: .5,),),
+                Container(
+                    child: Row(
+                      children: [
+                        Text(
+                          "TIP PER PERSON",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                              color: Colors.grey[700],
+                              fontWeight: FontWeight.w800,
+                              fontSize: 13,
+                              letterSpacing: .5,
+                            ),
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          "TOTAL TIP",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                              color: Colors.grey[700],
+                              fontWeight: FontWeight.w800,
+                              fontSize: 13,
+                              letterSpacing: .5,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    Spacer(),
-                    Text(
-                      "TOTAL PER PERSON",
-                      style: GoogleFonts.roboto(textStyle: TextStyle(color: Colors.grey[700], fontWeight: FontWeight.w800 ,fontSize: 13, letterSpacing: .5,),),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10,),
-                Row(
-                  children: [
-                    Text(
-                      "${tipPercentage.toInt()}",
-                      style: GoogleFonts.roboto(textStyle: TextStyle(
-                          color: Colors.grey[800],
-                          fontSize: 50,
-                          fontWeight: FontWeight.w600),),
-                    ),
-                    Spacer(),
-                    Text(
-                      numberOfPeople==1 ? "\$${totalAmount.toStringAsFixed(2)}" : "\$${totalPerPerson.toStringAsFixed(2)}",
-                      style: GoogleFonts.roboto(textStyle: TextStyle(
-                          color: Colors.blue[800],
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700),),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Spacer(),
-                    Text("TOTAL",
-                    style: GoogleFonts.roboto(textStyle: TextStyle(color: Colors.grey[700], fontWeight: FontWeight.w800 ,fontSize: 13 , letterSpacing: .5,),),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10,),
-                Row(
-                  children: [
-                    Spacer(),
-                    Text("\$${totalAmount.toStringAsFixed(2)}",
-                    style: GoogleFonts.roboto(textStyle: TextStyle(
-                          color: Colors.blue[800],
-                          fontSize: 60,
-                          fontWeight: FontWeight.w600),),
-                    ),
-                  ],
-                ),
+                  ),
                 SizedBox(
                   height: 10,
                 ),
-               Row(
-                  children: [
-                    Text(
-                      "TIP PER PERSON",
-                      style: GoogleFonts.roboto(textStyle: TextStyle(color: Colors.grey[700], fontWeight: FontWeight.w800 ,fontSize: 13, letterSpacing: .5,),),
+                Expanded(
+                  child: Container(
+                    child: Row(
+                      children: [
+                        Text(
+                          numberOfPeople == 1
+                              ? "\$${tipAmount.toStringAsFixed(2)}"
+                              : "\$${tipPerPerson.toStringAsFixed(2)}",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 25,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          "\$${tipAmount.toStringAsFixed(2)}",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                                color: Colors.blue[800],
+                                fontSize: 25,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                      ],
                     ),
-                    Spacer(),
-                    Text(
-                      "TOTAL TIP",
-                      style: GoogleFonts.roboto(textStyle: TextStyle(color: Colors.grey[700], fontWeight: FontWeight.w800 ,fontSize: 13, letterSpacing: .5,),),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-               Row(
-                  children: [
-                    Text(
-                      numberOfPeople==1 ? "\$${tipAmount.toStringAsFixed(2)}": "\$${tipPerPerson.toStringAsFixed(2)}",
-                      style: GoogleFonts.roboto(textStyle: TextStyle(
-                          color: Colors.grey[600],
-                          fontSize: 25,
-                          fontWeight: FontWeight.w400),),
-                    ),
-                    Spacer(),
-                    Text(
-                      "\$${tipAmount.toStringAsFixed(2)}",
-                      style: GoogleFonts.roboto(textStyle: TextStyle(
-                          color: Colors.blue[800],
-                          fontSize: 25,
-                          fontWeight: FontWeight.w400),),
-                    ),
-                  ],
+                  ),
                 ),
               ],
             ),
