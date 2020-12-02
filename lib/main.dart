@@ -331,7 +331,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Spacer(),
                     Text(
-                      "\$${totalPerPerson.toStringAsFixed(2)}",
+                      numberOfPeople==1 ? "\$${totalAmount.toStringAsFixed(2)}" : "\$${totalPerPerson.toStringAsFixed(2)}",
                       style: GoogleFonts.roboto(textStyle: TextStyle(
                           color: Colors.blue[800],
                           fontSize: 20,
@@ -381,7 +381,7 @@ class _HomePageState extends State<HomePage> {
                Row(
                   children: [
                     Text(
-                      "\$${tipPerPerson.toStringAsFixed(2)}",
+                      numberOfPeople==1 ? "\$${tipAmount.toStringAsFixed(2)}": "\$${tipPerPerson.toStringAsFixed(2)}",
                       style: GoogleFonts.roboto(textStyle: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 25,
