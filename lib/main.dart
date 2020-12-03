@@ -134,11 +134,21 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         TextField(
+                          style: TextStyle(color: Colors.white),
                           textAlign: TextAlign.center,
                           onChanged: (val) {
                             billAmount = double.parse(val);
                           },
-                          decoration: InputDecoration(hintText: "Bill Amount"),
+                          decoration: InputDecoration(
+                            hintText: "Bill Amount",
+                            hintStyle: TextStyle(color: Colors.white),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                          ),
                         ),
                         SizedBox(
                           height: 20,
@@ -268,36 +278,35 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: 10,
                 ),
-                 Container(
-                    child: Row(
-                      children: [
-                        Text(
-                          "YOUR BILL",
-                          style: GoogleFonts.roboto(
-                            textStyle: TextStyle(
-                              color: Colors.grey[700],
-                              fontWeight: FontWeight.w800,
-                              fontSize: 13,
-                              letterSpacing: .5,
-                            ),
+                Container(
+                  child: Row(
+                    children: [
+                      Text(
+                        "YOUR BILL",
+                        style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                            color: Colors.grey[700],
+                            fontWeight: FontWeight.w800,
+                            fontSize: 13,
+                            letterSpacing: .5,
                           ),
                         ),
-                        Spacer(),
-                        Text(
-                          "NUMBER OF PEOPLE",
-                          style: GoogleFonts.roboto(
-                            textStyle: TextStyle(
-                              color: Colors.grey[700],
-                              fontWeight: FontWeight.w800,
-                              fontSize: 13,
-                              letterSpacing: .5,
-                            ),
+                      ),
+                      Spacer(),
+                      Text(
+                        "NUMBER OF PEOPLE",
+                        style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                            color: Colors.grey[700],
+                            fontWeight: FontWeight.w800,
+                            fontSize: 13,
+                            letterSpacing: .5,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                
+                ),
                 SizedBox(
                   height: 10,
                 ),
@@ -332,34 +341,34 @@ class _HomePageState extends State<HomePage> {
                   height: 10,
                 ),
                 Container(
-                    child: Row(
-                      children: [
-                        Text(
-                          "TIP %",
-                          style: GoogleFonts.roboto(
-                            textStyle: TextStyle(
-                              color: Colors.grey[700],
-                              fontWeight: FontWeight.w800,
-                              fontSize: 13,
-                              letterSpacing: .5,
-                            ),
+                  child: Row(
+                    children: [
+                      Text(
+                        "TIP %",
+                        style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                            color: Colors.grey[700],
+                            fontWeight: FontWeight.w800,
+                            fontSize: 13,
+                            letterSpacing: .5,
                           ),
                         ),
-                        Spacer(),
-                        Text(
-                          "TOTAL PER PERSON",
-                          style: GoogleFonts.roboto(
-                            textStyle: TextStyle(
-                              color: Colors.grey[700],
-                              fontWeight: FontWeight.w800,
-                              fontSize: 13,
-                              letterSpacing: .5,
-                            ),
+                      ),
+                      Spacer(),
+                      Text(
+                        "TOTAL PER PERSON",
+                        style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                            color: Colors.grey[700],
+                            fontWeight: FontWeight.w800,
+                            fontSize: 13,
+                            letterSpacing: .5,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
+                ),
                 SizedBox(
                   height: 10,
                 ),
@@ -392,24 +401,24 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                 Container(
-                    child: Row(
-                      children: [
-                        Spacer(),
-                        Text(
-                          "TOTAL",
-                          style: GoogleFonts.roboto(
-                            textStyle: TextStyle(
-                              color: Colors.grey[700],
-                              fontWeight: FontWeight.w800,
-                              fontSize: 13,
-                              letterSpacing: .5,
-                            ),
+                Container(
+                  child: Row(
+                    children: [
+                      Spacer(),
+                      Text(
+                        "TOTAL",
+                        style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                            color: Colors.grey[700],
+                            fontWeight: FontWeight.w800,
+                            fontSize: 13,
+                            letterSpacing: .5,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
+                ),
                 SizedBox(
                   height: 10,
                 ),
@@ -435,34 +444,34 @@ class _HomePageState extends State<HomePage> {
                   height: 10,
                 ),
                 Container(
-                    child: Row(
-                      children: [
-                        Text(
-                          "TIP PER PERSON",
-                          style: GoogleFonts.roboto(
-                            textStyle: TextStyle(
-                              color: Colors.grey[700],
-                              fontWeight: FontWeight.w800,
-                              fontSize: 13,
-                              letterSpacing: .5,
-                            ),
+                  child: Row(
+                    children: [
+                      Text(
+                        "TIP PER PERSON",
+                        style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                            color: Colors.grey[700],
+                            fontWeight: FontWeight.w800,
+                            fontSize: 13,
+                            letterSpacing: .5,
                           ),
                         ),
-                        Spacer(),
-                        Text(
-                          "TOTAL TIP",
-                          style: GoogleFonts.roboto(
-                            textStyle: TextStyle(
-                              color: Colors.grey[700],
-                              fontWeight: FontWeight.w800,
-                              fontSize: 13,
-                              letterSpacing: .5,
-                            ),
+                      ),
+                      Spacer(),
+                      Text(
+                        "TOTAL TIP",
+                        style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                            color: Colors.grey[700],
+                            fontWeight: FontWeight.w800,
+                            fontSize: 13,
+                            letterSpacing: .5,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
+                ),
                 SizedBox(
                   height: 10,
                 ),
